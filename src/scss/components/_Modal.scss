@@ -1,0 +1,179 @@
+// Стилі для модального вікна
+.modal {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: modalFadeIn 0.3s ease-out;
+
+    // Закриття при кліку на overlay
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: modalSlideIn 0.3s ease-out;
+
+    // Запобігання закриттю при кліку на контент
+    cursor: default;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+      max-height: 95vh;
+      border-radius: 12px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0 24px;
+
+    @media (max-width: 768px) {
+      padding: 20px 20px 0 20px;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+
+    &:hover {
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    &:focus {
+      outline: none;
+      background: #f3f4f6;
+      color: #374151;
+    }
+  }
+
+  &__body {
+    padding: 24px;
+
+    @media (max-width: 768px) {
+      padding: 20px;
+    }
+  }
+
+  // Стилі для форми в модалці
+  .contact-form__container {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .contact-form__title {
+    display: none; // Прибираємо заголовок форми, бо є заголовок модалки
+  }
+
+  // Стилі для квізу в модалці
+  .quiz__container {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+    max-width: none;
+  }
+}
+
+// Анімації
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Блокування скролу body коли модалка відкрита
+.modal-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
+// Адаптив для дуже маленьких екранів
+@media (max-width: 480px) {
+  .modal {
+    &__overlay {
+      padding: 10px;
+    }
+
+    &__content {
+      border-radius: 12px;
+      max-height: 98vh;
+    }
+
+    &__header {
+      padding: 16px 16px 0 16px;
+    }
+
+    &__title {
+      font-size: 1.125rem;
+    }
+
+    &__body {
+      padding: 16px;
+    }
+
+    &__close {
+      width: 36px;
+      height: 36px;
+      font-size: 1.25rem;
+    }
+  }
+}

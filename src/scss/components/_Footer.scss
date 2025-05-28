@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2rem;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.footer__nav,
+.footer__info,
+.footer__social {
+  flex: 1 1 200px;
+  margin-bottom: 1rem;
+}
+
+.footer__list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__list li {
+  margin-bottom: 0.5rem;
+}
+
+.footer__list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer__icon {
+  color: #333;
+  transition: color 0.3s;
+}
+
+.footer__icon:hover {
+  color: #e1306c;
+}

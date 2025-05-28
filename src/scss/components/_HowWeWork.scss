@@ -1,0 +1,33 @@
+.how-we-work {
+  padding: 40px 20px;
+  background-color: #fff;
+  color: #222;
+  font-family: "Arial", sans-serif;
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #0077cc;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 40px;
+
+    li {
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+
+      strong {
+        color: #004d82;
+      }
+    }
+  }
+}
